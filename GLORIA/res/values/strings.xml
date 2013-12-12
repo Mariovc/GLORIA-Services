@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GLORIA App</string>
+    <string name="action_settings">Settings</string>
+    <string name="telescopes_activity_label">Telescopes</string>
+    <string name="telescope_activity_label">Telescope</string>
+
+    
+    <string name="telescope_image_description">Telescope image</string>
+	<string name="star_image_object">Star image for observation plan</string>
+	<string name="status_image_object">Observation plan status</string>
+	<string name="image_description">Image by date</string>
+	<string name="star_image_description">Plan image</string>
+	<string name="status_image_description">Status image</string>
+	<string name="previous_button_description">Previous button</string>
+	<string name="next_button_description">Next button</string>
+	<string name="no_image_description">No image</string>
+    
+    
+	
+	
+    <string name="telescope_name">Name:</string>
+    <string name="telescope_partner">Partner:</string>
+    <string name="telescope_location">Location:</string>
+    <string name="telescope_coordinates">Coordinates:</string>
+    <string name="telescope_starting_date">Starting date:</string>
+    <string name="telescope_filters">Filters:</string>
+    <string name="telescope_aperture">Aperture:</string>
+    <string name="telescope_focal_length">Focal Length:</string>
+    <string name="telescope_webpage">Webpage:</string>
+    <string name="security_cams_title">Cameras</string>
+    
+    <string name="telescope_name_example">T02 – BOOTES 2/TELMA</string>
+    <string name="telescope_partner_example">UMA-CSIC</string>
+    <string name="telescope_location_example">Andalucía, Spain</string>
+    <string name="telescope_coordinates_example">Latitude: 36.7592 N – Longitude: 4.0410 W</string>
+    <string name="telescope_starting_date_example">October 2001</string>
+    <string name="telescope_filters_example">g\’r\'i\’z\', W</string>
+    <string name="telescope_aperture_example">0.6m</string>
+    <string name="telescope_focal_length_example">4475mm</string>
+    <string name="telescope_webpage_example">www.das.uchile.cl/proyectoCHASE/</string>
+    
+    
+    
+    
+    
+	<string name="scheduler_activity_label">Scheduler</string>
+    <string name="tab_navigation_content">Tabs can be useful for switching between a limited number of items. You can also collapse the main body of the action bar on small devices so that only the tab bar is displayed. See the source for more information.</string>
+    <string name="activeScheduleTab">Active</string>
+	<string name="newScheduleTab">New</string>
+	<string name="inactiveScheduleTab">Inactive</string>
+	
+
+	<string name="images_activity_label">Images</string>
+	<string name="cancelBtn">Cancel</string>
+	<string name="selectDateMsg">Select a date to start</string>
+	<string name="imagesTitle">Images</string>
+	
+	
+	
+	
+	
+	
+	<string name="star_name">Name:</string>
+	<string name="star_description">Description:</string>
+	<string name="star_object">Object:</string>
+	<string name="star_ra">RA:</string>
+	<string name="star_dec">DEC:</string>
+	<string name="star_exposure">Exposure:</string>
+	<string name="star_filter">Filter:</string>
+	<string name="star_status">State:</string>
+	<string name="star_results">Results:</string>
+	
+	<string name="star_name_example">Jupiter</string>
+	<string name="star_description_example">Fer - test 10</string>
+	<string name="star_description_hint">Description</string>
+	<string name="star_object_example">Jupiter</string>
+	<string name="star_ra_example">19h 59.6m</string>
+	<string name="star_dec_example">+22° 43´</string>
+	<string name="star_exposure_example">-</string>
+	<string name="star_filter_example">open</string>
+	<string name="star_status_example">prepared</string>
+	
+	<string name="do_plan_button">Request</string>
+	
+	
+	
+	
+	
+	
+    <string name="authenticatingMsg">Authenticating &#8230;</string>
+    <string name="defaultErrorMsg">Unexpected error</string>
+    <string name="wrongLoginMsg">Invalid username or password</string>
+    <string name="noInternetMsg">Server unreachable (Please check your Internet connection)</string>
+    <string name="noAccessMsg">Cannot access the server: </string>
+    <string name="requestingAccess">Requesting access to experiment…</string>
+    <string name="gettingTelescopes">Getting telescopes list &#8230;</string>
+	
+    
+    
+    
+    
+    
+    <string name="imagesSectionInfo">Select a date or an object to show images</string>
+    <string name="noImagesMessage">No images</string>
+    <string name="noMoreImagesMessage">No more images</string>
+    <string name="noPreviousImagesMessage">No previous image</string>
+    <string name="gettingImagesList">Getting images list &#8230;</string>
+    <string name="gettingImage">Getting image &#8230;</string>
+    <string name="errorGettingImage">Error getting image</string>
+    
+    
+    
+    
+    
+    <string name="gettingActivePlans">Getting active plans &#8230;</string>
+    <string name="gettingInactivePlans">Getting inactive plans &#8230;</string>
+    <string name="gettingCatalogue">Getting catalogue &#8230;</string>
+    <string name="noPlans">No plans</string>
+    
+    
+    
+    
+    
+    <string name="gettingPlanInfo">Getting plan info &#8230;</string>
+    <string name="noDescription">Write a description first</string>
+    <string name="sendingPlanRequest">Sending plan request &#8230;</string>
+    
+    
+    
+    <string name="connectionError">Connection error, try again</string>
+    
+    
+    
+    
+    
+    <string name="informationTitle">Information</string>
+    <string name="register"><a href="http://users.gloria-project.eu/home?p_p_id=58&amp;p_p_lifecycle=0&amp;p_p_state=maximized&amp;p_p_mode=view&amp;p_p_col_id=column-2&amp;p_p_col_count=2&amp;saveLastPath=0&amp;_58_struts_action=%2Flogin%2Fcreate_account">Register</a></string>
+    <string name="usernameTitle">User name:</string>
+    <string name="usernameHint">Username</string>
+    <string name="passwordTitle">Password:</string>
+    <string name="passwordHint">Password</string>
+    <string name="remembermeTitle">Remember me</string>
+    <string name="loginBtn">Log in</string>
+    <string name="loginInfo">GLORIA is an European project for the creation of a global network of robotic telescopes. Join and help astronomers understand the mysteries of the Universe. Thanks to your help, we will be able to measure solar activity.\n\nVisit us on <a href="http://gloria-project.eu/">http://gloria-project.eu</a></string>
+    <string name="sevenCapLogo">Seven Capacities CORDIS</string>
+    <string name="euLogo">European Union</string>
+</resources>

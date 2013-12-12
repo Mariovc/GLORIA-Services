@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<stars>
+    <star>
+    	<id>1</id>
+   		<name>m27</name>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<status>prepared</status>
+   		<image>star_m27</image>
+	</star>
+    
+    <star>
+    	<id>2</id>
+   		<name>m27</name>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<status>rejected</status>
+   		<image>star_m27</image>
+	</star>
+    
+    <star>
+    	<id>3</id>
+   		<name>m27</name>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<status>advertised</status>
+   		<image>star_m27</image>
+	</star>
+    
+    <star>
+    	<id>4</id>
+   		<name>m27</name>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<status>queued</status>
+   		<image>star_m27</image>
+	</star>
+    
+    <star>
+    	<id>5</id>
+   		<name>m27</name>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<status>aborted</status>
+   		<image>star_m27</image>
+	</star>
+    
+    <star>
+    	<id>6</id>
+   		<name>m27</name>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<status>error</status>
+   		<image>star_m27</image>
+	</star>
+    
+    <star>
+    	<id>7</id>
+   		<name>m27</name>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<status>impossible</status>
+   		<image>star_m27</image>
+	</star>
+	
+    <star>
+    	<id>8</id>
+   		<name>m27</name>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<status>done</status>
+   		<image>star_m27</image>
+	</star>
+</stars>

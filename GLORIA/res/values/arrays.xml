@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="section_image_ids">
+        <item>@drawable/telescopes</item>
+        <item>@drawable/images</item>
+        <item>@drawable/scheduler</item>
+        <item>@drawable/profile</item>
+        <item>@drawable/experiments</item>
+        <item>@drawable/about</item>
+    </string-array>
+    
+    <string-array name="section_names">
+        <item>Telescopes</item>
+        <item>Images</item>
+        <item>Scheduler</item>
+        <item>Profile</item>
+        <item>Experiments</item>
+        <item>About</item>
+    </string-array>
+    
+    
+    
+     <string-array name="image_categories">
+        <item>All</item>
+        <item>Sun</item>
+        <item>Jupiter</item>
+        <item>M27</item>
+        <item>M50</item>
+    </string-array>
+
+</resources>

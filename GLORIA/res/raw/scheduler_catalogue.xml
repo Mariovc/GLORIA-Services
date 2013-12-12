@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<stars>
+    <star>
+    	<id>1</id>
+   		<name>m17</name>
+   		<longname>M17 (Omega Nebula)</longname>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<moonAltitude>15</moonAltitude>
+   		<moonDistance>20</moonDistance>
+   		<targetAltitude>10</targetAltitude>
+   		<filter>OPEN</filter>
+   		<exposure>2</exposure>
+   		<image>star_m17</image>
+	</star>
+	
+    <star>
+    	<id>2</id>
+   		<name>m27</name>
+   		<longname>M27 (Dumbbell Nebula)</longname>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<moonAltitude>15</moonAltitude>
+   		<moonDistance>20</moonDistance>
+   		<targetAltitude>10</targetAltitude>
+   		<filter>OPEN</filter>
+   		<exposure>2</exposure>
+   		<image>star_m27</image>
+	</star>
+	
+    <star>
+    	<id>3</id>
+   		<name>m50</name>
+   		<longname>M50 (Messier 50)</longname>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<moonAltitude>15</moonAltitude>
+   		<moonDistance>20</moonDistance>
+   		<targetAltitude>10</targetAltitude>
+   		<filter>OPEN</filter>
+   		<exposure>2</exposure>
+   		<image>star_m50</image>
+	</star>
+	
+    <star>
+    	<id>4</id>
+   		<name>jupiter</name>
+   		<longname>Jupiter</longname>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<moonAltitude>15</moonAltitude>
+   		<moonDistance>20</moonDistance>
+   		<targetAltitude>10</targetAltitude>
+   		<filter>OPEN</filter>
+   		<exposure>2</exposure>
+   		<image>star_jupiter</image>
+	</star>
+</stars>

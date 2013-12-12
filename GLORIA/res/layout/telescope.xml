@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_stars"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/imageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_margin"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/telescopeImageFrame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/telescopeImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/image_border"
+                    android:contentDescription="@string/telescope_image_description"
+                    android:src="@drawable/t00_no_telescope" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_margin"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/nameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/field_space"
+                android:text="@string/telescope_name_example"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/partnerFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/partnerTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telescope_partner"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/partnerValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/telescope_partner_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/locationFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/locationTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telescope_location"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/locationValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/telescope_location_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/coordinatesFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/coordinatesTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telescope_coordinates"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/coordinatesValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/telescope_coordinates_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/startingDateFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/startingDateTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telescope_starting_date"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/startingDateValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/telescope_starting_date_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filtersFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/filtersTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telescope_filters"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/filtersValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/telescope_filters_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/apertureFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/apertureTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telescope_aperture"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/apertureValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/telescope_aperture_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/focalLengthFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/focalLengthTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telescope_focal_length"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/focalLengthValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/telescope_focal_length_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/websiteFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/websiteTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telescope_webpage"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/websiteValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:clickable="true"
+                    android:onClick="websiteLink"
+                    android:text="@string/telescope_webpage_example"
+                    android:textColor="@color/link" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/field_space"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/security_cams_title"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blue"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/cameraContainer1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginRight="@dimen/activity_margin"
+            android:background="@color/transparent_black"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageCamera1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/image_border"
+                android:contentDescription="@string/telescope_image_description"
+                android:src="@drawable/bg_rounded_background" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

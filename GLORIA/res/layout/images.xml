@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_tiled" >
+
+        <com.example.touch.TouchImageView
+            android:id="@+id/touchableImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:onClick="showHideElements" />
+
+        <ImageButton
+            android:id="@+id/previousButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:background="@color/transparent"
+            android:contentDescription="@string/previous_button_description"
+            android:onClick="previousImage"
+            android:src="@drawable/previous_button" />
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:layout_marginRight="@dimen/activity_margin"
+            android:background="@color/transparent"
+            android:contentDescription="@string/next_button_description"
+            android:onClick="nextImage"
+            android:src="@drawable/next_button" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/noImageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/noImageImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_margin"
+            android:contentDescription="@string/no_image_description"
+            android:src="@drawable/no_image" />
+
+        <TextView
+            android:id="@+id/noImageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_margin"
+            android:text="@string/imagesSectionInfo"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>

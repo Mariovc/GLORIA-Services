@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/setDate"
+        android:showAsAction="ifRoom|withText"
+        android:title="Set Date"
+        android:actionProviderClass="com.actionbarsherlock.sample.demos.ActionProviders$SettingsActionProvider" 
+        android:icon="@android:drawable/ic_menu_today"/>
+
+
+</menu>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_stars"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/starImageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_margin"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/starImageFrame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/starImageBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/image_border"
+                    android:background="@android:color/black"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/starImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/telescope_image_description"
+                        android:src="@drawable/no_image" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/starFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_margin"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/starNameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/field_space"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="@string/star_description_example"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/statusFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/statusTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/star_status"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/statusValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/star_status_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/objectFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/objectTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/star_object"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/objectValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/star_object_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/raFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/raTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/star_ra"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/raValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/star_ra_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/decFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/decTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/star_dec"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/decValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/star_dec_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/exposureFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/exposureTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/star_exposure"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exposureValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/star_exposure_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filterFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/filterTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/star_filter"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/filterValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/star_filter_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/requestFieldContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_margin"
+            android:focusable="false"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/star_description"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/descriptionEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/star_description_hint" />
+
+                <Button
+                    android:id="@+id/requestButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doPlan"
+                    android:text="@string/do_plan_button" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/resultsFieldContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_margin"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/filterTitleField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/star_results"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/resultImages"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/activity_margin"
+                android:background="@color/transparent_black"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/imageResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/image_border"
+                    android:contentDescription="@string/telescope_image_description"
+                    android:src="@drawable/bg_rounded_background" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
