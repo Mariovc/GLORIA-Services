@@ -39,6 +39,7 @@ public class ImagesActivity extends SherlockActivity implements ActionBar.OnNavi
 	private static final String CACHE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/newImage.jpg";
 	private static final int DATE_DIALOG_ID = 0;
 	private boolean datePickerCancelled = false;
+	private boolean loadImages = true;
 	private int dateYear;
 	private int dateMonth;
 	private int dateDay;
@@ -146,11 +147,6 @@ public class ImagesActivity extends SherlockActivity implements ActionBar.OnNavi
 				dateDay = dayOfMonth; 
 				getImagesListTask = new GetImagesList();
 				getImagesListTask.execute();
-				//loadImages(year, monthOfYear +1, dayOfMonth);
-				// TODO get new image for that date 
-
-				// TODO change displayedDate by auxDate if there is any image for that date.
-				//updateDateDisplay();
 			}
 		}
 
@@ -198,7 +194,7 @@ public class ImagesActivity extends SherlockActivity implements ActionBar.OnNavi
 		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 		getSupportActionBar().setListNavigationCallbacks(list, this);
 	}
-	
+
 
 
 	@Override
@@ -231,9 +227,13 @@ public class ImagesActivity extends SherlockActivity implements ActionBar.OnNavi
 
 	@Override
 	public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-		String objectRequested = categories[itemPosition];
-		getImagesListByObjectTask = new GetImagesListByObject();
-		getImagesListByObjectTask.execute(objectRequested);
+		if (loadImages) {
+			String objectRequested = categories[itemPosition];
+			getImagesListByObjectTask = new GetImagesListByObject();
+			getImagesListByObjectTask.execute(objectRequested);
+		} else {
+			loadImages = true;
+		}
 		return true;
 	}
 
@@ -286,6 +286,7 @@ public class ImagesActivity extends SherlockActivity implements ActionBar.OnNavi
 					nextImage(null);
 				} else {
 					Toast.makeText(getApplicationContext(), R.string.noImagesMessage, Toast.LENGTH_SHORT).show();
+					findViewById(R.id.noImageLayout).setVisibility(View.VISIBLE);
 				}
 			}
 			synchronized (taskLock) {
@@ -293,8 +294,8 @@ public class ImagesActivity extends SherlockActivity implements ActionBar.OnNavi
 			}
 		}
 	}
-	
-	
+
+
 	private class GetImagesList extends AsyncTask<Void, Void, ArrayList<Integer>> {
 		private ProgressDialog progressDialog = null;
 
@@ -327,6 +328,8 @@ public class ImagesActivity extends SherlockActivity implements ActionBar.OnNavi
 
 			if (!isCancelled()) {
 				resetValues();
+				getSupportActionBar().setSelectedNavigationItem(0);
+				loadImages = false;
 				if (auxImageIdsList.size() > 0){
 					imageIdsList = auxImageIdsList;
 					nextImage(null);
@@ -391,7 +394,7 @@ public class ImagesActivity extends SherlockActivity implements ActionBar.OnNavi
 
 	private Image getImageWithError(Date creationDate) {
 		Image imageWithError;
-		Bitmap errorImage = BitmapFactory.decodeResource(this.getResources(), R.drawable.no_image);
+		Bitmap errorImage = BitmapFactory.decodeResource(this.getResources(), R.drawable.no_image_big);
 		imageWithError = new Image(errorImage, creationDate);
 		return imageWithError;
 	}

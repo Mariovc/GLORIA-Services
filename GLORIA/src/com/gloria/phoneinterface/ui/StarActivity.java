@@ -297,8 +297,9 @@ public class StarActivity extends SherlockActivity{
 
 	private void setInfoViews() {
 		if (planType == SchedulerActivity.NEW_TAB_POSITION && planObject.getObjectName() != null){
-			((TextView) findViewById(R.id.starNameField)).setText(planObject.getObjectName());
-			getSupportActionBar().setTitle(planObject.getObjectName());
+			String planName = planObject.getObjectName() + " " + planObject.getObjectCommonName();
+			((TextView) findViewById(R.id.starNameField)).setText(planName);
+			getSupportActionBar().setTitle(planName);
 		} else {
 			((TextView) findViewById(R.id.starNameField)).setText(planObject.getDescription());
 			getSupportActionBar().setTitle(planObject.getDescription());

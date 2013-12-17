@@ -84,7 +84,7 @@ ActionBar.TabListener {
 
 		});
 	}
-	
+
 	/*@Override
 	protected void onResume() {
 		Log.d("Authorization", "token: "+authorizationToken);
@@ -195,6 +195,8 @@ ActionBar.TabListener {
 				case XmlPullParser.END_TAG:
 					if (tagname.equalsIgnoreCase("name")) {
 						name = text;
+					} else if (tagname.equalsIgnoreCase("longname")) {
+						name = name + " - " + text;
 					} else if (tagname.equalsIgnoreCase("image")) {
 						image = text;
 					} else if (tagname.equalsIgnoreCase("id")) {
@@ -241,7 +243,7 @@ ActionBar.TabListener {
 		@Override
 		protected ArrayList<Plan> doInBackground(Void... v) {
 			ArrayList<Plan> plans;
-				plans = apiOperations.getPlansActive();
+			plans = apiOperations.getPlansActive();
 			return plans;
 		}
 
@@ -257,11 +259,11 @@ ActionBar.TabListener {
 			}
 
 			if (!isCancelled()) {
-					if (plans.size() == 0)
-						Toast.makeText(getApplicationContext(), R.string.noPlans,
-								Toast.LENGTH_SHORT).show();
-					setPlans(plans);
-					displayPlans();
+				if (plans.size() == 0)
+					Toast.makeText(getApplicationContext(), R.string.noPlans,
+							Toast.LENGTH_SHORT).show();
+				setPlans(plans);
+				displayPlans();
 			}
 			synchronized (taskLock) {
 				getActiveDataTask = null;

@@ -8,6 +8,11 @@
     <color name="grey">#585858</color>
     
     
+    <color name="green_plan">#BEF781</color>
+    <color name="orange_plan">#F3E2A9</color>
+    <color name="blue_plan">#A9D0F5</color>
+    <color name="white_plan">#FFFFFF</color>
+    
     
     <color name="link_blue">#7070FF</color>
     <color name="hint_text_color">#AAAAAA</color>

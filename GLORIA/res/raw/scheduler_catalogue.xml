@@ -4,8 +4,8 @@
 <stars>
     <star>
     	<id>1</id>
-   		<name>m17</name>
-   		<longname>M17 (Omega Nebula)</longname>
+   		<name>M1</name>
+   		<longname>Nebulosa del Cangrejo</longname>
    		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
    		<ra>19h 59.6m</ra>
    		<dec>+22° 43´</dec>
@@ -14,13 +14,13 @@
    		<targetAltitude>10</targetAltitude>
    		<filter>OPEN</filter>
    		<exposure>2</exposure>
-   		<image>star_m17</image>
+   		<image>star_m1</image>
 	</star>
 	
     <star>
     	<id>2</id>
-   		<name>m27</name>
-   		<longname>M27 (Dumbbell Nebula)</longname>
+   		<name>M11</name>
+   		<longname>Cúmulo del Pato Salvaje</longname>
    		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
    		<ra>19h 59.6m</ra>
    		<dec>+22° 43´</dec>
@@ -29,13 +29,13 @@
    		<targetAltitude>10</targetAltitude>
    		<filter>OPEN</filter>
    		<exposure>2</exposure>
-   		<image>star_m27</image>
+   		<image>star_m11</image>
 	</star>
 	
     <star>
     	<id>3</id>
-   		<name>m50</name>
-   		<longname>M50 (Messier 50)</longname>
+   		<name>M24</name>
+   		<longname>Nube Estelar de Sagitario</longname>
    		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
    		<ra>19h 59.6m</ra>
    		<dec>+22° 43´</dec>
@@ -44,13 +44,13 @@
    		<targetAltitude>10</targetAltitude>
    		<filter>OPEN</filter>
    		<exposure>2</exposure>
-   		<image>star_m50</image>
+   		<image>star_m24</image>
 	</star>
 	
     <star>
     	<id>4</id>
-   		<name>jupiter</name>
-   		<longname>Jupiter</longname>
+   		<name>M31</name>
+   		<longname>Galaxia de Andrómeda</longname>
    		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
    		<ra>19h 59.6m</ra>
    		<dec>+22° 43´</dec>
@@ -59,6 +59,96 @@
    		<targetAltitude>10</targetAltitude>
    		<filter>OPEN</filter>
    		<exposure>2</exposure>
-   		<image>star_jupiter</image>
+   		<image>star_m31</image>
+	</star>
+	
+    <star>
+    	<id>5</id>
+   		<name>M33</name>
+   		<longname>Galaxia del Triángulo</longname>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<moonAltitude>15</moonAltitude>
+   		<moonDistance>20</moonDistance>
+   		<targetAltitude>10</targetAltitude>
+   		<filter>OPEN</filter>
+   		<exposure>2</exposure>
+   		<image>star_m33</image>
+	</star>
+	
+    <star>
+    	<id>6</id>
+   		<name>M42</name>
+   		<longname>Nebulosa de Orión</longname>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<moonAltitude>15</moonAltitude>
+   		<moonDistance>20</moonDistance>
+   		<targetAltitude>10</targetAltitude>
+   		<filter>OPEN</filter>
+   		<exposure>2</exposure>
+   		<image>star_m42</image>
+	</star>
+	
+    <star>
+    	<id>7</id>
+   		<name>M45</name>
+   		<longname>Pléyades</longname>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<moonAltitude>15</moonAltitude>
+   		<moonDistance>20</moonDistance>
+   		<targetAltitude>10</targetAltitude>
+   		<filter>OPEN</filter>
+   		<exposure>2</exposure>
+   		<image>star_m45</image>
+	</star>
+	
+    <star>
+    	<id>8</id>
+   		<name>M51</name>
+   		<longname>Galaxia Remolino</longname>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<moonAltitude>15</moonAltitude>
+   		<moonDistance>20</moonDistance>
+   		<targetAltitude>10</targetAltitude>
+   		<filter>OPEN</filter>
+   		<exposure>2</exposure>
+   		<image>star_m51</image>
+	</star>
+	
+    <star>
+    	<id>9</id>
+   		<name>M57</name>
+   		<longname>Nebulosa del anillo</longname>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<moonAltitude>15</moonAltitude>
+   		<moonDistance>20</moonDistance>
+   		<targetAltitude>10</targetAltitude>
+   		<filter>OPEN</filter>
+   		<exposure>2</exposure>
+   		<image>star_m57</image>
+	</star>
+	
+    <star>
+    	<id>10</id>
+   		<name>M82</name>
+   		<longname>Galaxia del Cigarro</longname>
+   		<description>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+   		<ra>19h 59.6m</ra>
+   		<dec>+22° 43´</dec>
+   		<moonAltitude>15</moonAltitude>
+   		<moonDistance>20</moonDistance>
+   		<targetAltitude>10</targetAltitude>
+   		<filter>OPEN</filter>
+   		<exposure>2</exposure>
+   		<image>star_m82</image>
 	</star>
 </stars>
