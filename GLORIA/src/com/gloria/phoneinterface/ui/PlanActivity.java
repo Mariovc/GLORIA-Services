@@ -30,7 +30,7 @@ import com.gloria.phoneinterface.R;
 import com.gloria.phoneinterface.communications.GloriaApiOperations;
 import com.gloria.phoneinterface.structures.Plan;
 
-public class StarActivity extends SherlockActivity{
+public class PlanActivity extends SherlockActivity{
 
 	private Plan planObject = null;
 	private int planType = -1;
@@ -109,7 +109,7 @@ public class StarActivity extends SherlockActivity{
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = new ProgressDialog(StarActivity.this);
+			progressDialog = new ProgressDialog(PlanActivity.this);
 			progressDialog.setCancelable(false);
 			progressDialog.setCanceledOnTouchOutside(false);
 			progressDialog.setMessage(getString(R.string.sendingPlanRequest));
@@ -150,7 +150,7 @@ public class StarActivity extends SherlockActivity{
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = new ProgressDialog(StarActivity.this);
+			progressDialog = new ProgressDialog(PlanActivity.this);
 			progressDialog.setCancelable(false);
 			progressDialog.setCanceledOnTouchOutside(false);
 			progressDialog.setMessage(getString(R.string.gettingPlanInfo));
@@ -332,11 +332,11 @@ public class StarActivity extends SherlockActivity{
 		else 
 			findViewById(R.id.decFieldContainer).setVisibility(View.GONE);
 
-		if (planObject.getExposure() != null)
-			((TextView) findViewById(R.id.exposureValueField)).setText(planObject.getExposure().toString());
+/*		if (planObject.getObjectType() != null)
+			((TextView) findViewById(R.id.objectTypeValueField)).setText(planObject.getExposure().toString());
 		else 
 			findViewById(R.id.exposureFieldContainer).setVisibility(View.GONE);
-
+*/
 		if (planObject.getFilter() != null)
 			((TextView) findViewById(R.id.filterValueField)).setText(planObject.getFilter());
 		else 

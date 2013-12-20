@@ -29,6 +29,8 @@
                     android:id="@+id/telescopeImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+  					android:maxWidth="@dimen/telescope_image__max_width"
+  					android:adjustViewBounds="true"
                     android:layout_margin="@dimen/image_border"
                     android:contentDescription="@string/telescope_image_description"
                     android:src="@drawable/t00_no_telescope" />

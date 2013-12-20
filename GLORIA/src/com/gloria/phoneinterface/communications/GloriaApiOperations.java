@@ -6,8 +6,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 import magick.ColorspaceType;
 import magick.ImageInfo;
@@ -41,7 +45,7 @@ public class GloriaApiOperations {
 	private static final String CACHE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
 	private static final String TEMP_IMAGE_PATH = CACHE_PATH + "/newImage.jpg";
 
-	// private static final String SERVER_URL = "https://venus.datsi.fi.upm.es:8443/GLORIAAPI/";
+	// private static final String SERVER_URL = "http://venus.datsi.fi.upm.es:8080/";
 	private static final String SERVER_URL = "https://ws.users.gloria-project.eu:8443/";
 	private static final String USERS = "GLORIAAPI/users/";
 	private static final String TELESCOPES = "GLORIAAPI/telescopes/";
@@ -76,7 +80,9 @@ public class GloriaApiOperations {
 
 
 
-
+	/* **********************************************
+	 * 				TELESCOPES						*
+	 ********************************************** */
 
 
 	public ArrayList<String> getTelescopesNames() {
@@ -112,6 +118,38 @@ public class GloriaApiOperations {
 		}
 		return telescopesArray;
 	}
+	
+	public Bitmap getTelescopeImage(String telescopeName) {
+		Bitmap telescopeImage = null;
+		try {
+			HttpClient httpClient = apiProxy.getHttpClient();
+			HttpGet getRequest = apiProxy.getHttpGetRequest(String.format(OP_TELESCOPE_INFO, telescopeName), authorizationToken); 
+			HttpResponse resp = httpClient.execute(getRequest);
+
+			int statusCode = resp.getStatusLine().getStatusCode();
+			Log.d("DEBUG", "GET telescopes, status code: " + statusCode);
+			if (statusCode != HttpURLConnection.HTTP_OK) { // handle any errors, like 404, 500,..
+				Log.d("DEBUG", "Unknown error");
+			}
+
+			String respStr = EntityUtils.toString(resp.getEntity());
+			Log.d("DEBUG", "response: " + respStr);
+			JSONObject jsonTelescope = new JSONObject(respStr);
+			String telescopeImageUrl = jsonTelescope.optString("image");
+			telescopeImage = loadImageFromUrl(telescopeImageUrl, TEMP_IMAGE_PATH);
+
+		} catch (ClientProtocolException e) {
+			Log.d("DEBUG", "Client protocol exception");
+		} catch (IOException e) {
+			Log.d("DEBUG", "IO exception");
+			e.printStackTrace();
+		} catch (JSONException e) {
+			Log.d("DEBUG", "JSON exception");
+		}  finally {
+			apiProxy.shutdown();
+		}
+		return telescopeImage;
+	}
 
 	public Telescope getTelescopeInfo(String telescopeName, Bitmap telescopeImage) {
 		Telescope telescope = new Telescope(telescopeName, telescopeImage);
@@ -130,6 +168,14 @@ public class GloriaApiOperations {
 			Log.d("DEBUG", "response: " + respStr);
 			JSONObject jsonTelescope = new JSONObject(respStr);
 			telescope.setPartner(jsonTelescope.optString("owner"));
+			JSONObject jsonCoordinates = jsonTelescope.optJSONObject("coodinates");
+			Float longitude = (float) jsonCoordinates.optDouble("longitude");
+			Float latitude = (float) jsonCoordinates.optDouble("latitude");
+			telescope.setCoordinates(longitude, latitude);
+			Long dateLong = jsonTelescope.optLong("date");
+			DateFormat formatter = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault());
+			Date date = new Date(dateLong * 1000);
+			telescope.setStartingDate(formatter.format(date));
 
 
 		} catch (ClientProtocolException e) {
@@ -145,6 +191,15 @@ public class GloriaApiOperations {
 		return telescope;
 	}
 
+	
+	
+	
+	
+	
+	/* **********************************************
+	 * 					IMAGES						*
+	 ********************************************** */
+	
 	public ArrayList<Integer> getImagesList(int year, int monthOfYear, int dayOfMonth) {
 		Log.d("DEBUG", "URL images: " + String.format(OP_IMAGES_LIST_BY_DATE, year, monthOfYear, dayOfMonth));
 		ArrayList<Integer> imageIds = new ArrayList<Integer>();
@@ -368,115 +423,16 @@ public class GloriaApiOperations {
 	}
 
 
-
-	public ArrayList<Plan> getPlansInactive() {
-		ArrayList<Plan> inactivePlans = new ArrayList<Plan>();
-		try {
-			HttpClient httpClient = apiProxy.getHttpClient();
-			HttpGet getRequest = apiProxy.getHttpGetRequest(OP_PLANS_INACTIVE, authorizationToken); 
-			HttpResponse resp = httpClient.execute(getRequest);
-
-			int statusCode = resp.getStatusLine().getStatusCode();
-			Log.d("DEBUG", "GET inactive plans, status code: " + statusCode);
-			if (statusCode != HttpURLConnection.HTTP_OK) { // handle any errors, like 404, 500,..
-				Log.d("DEBUG", "Unknown error");
-			}
-
-			String respStr = EntityUtils.toString(resp.getEntity());
-			Log.d("DEBUG", "response: " + respStr);
-			JSONArray plansJson = new JSONArray(respStr);
-
-			for (int i = 0; i < plansJson.length(); i++) {
-				JSONObject planJson = plansJson.optJSONObject(i);
-				JSONObject opInfoJson = planJson.optJSONObject("opInfo");
-				String description = opInfoJson.optString("description");
-				Plan plan = new Plan(description);
-				plan.setObjectName(opInfoJson.optString("object"));
-				plan.setStatus(planJson.optString("state"));
-				plan.setId(planJson.optInt("id"));
-				inactivePlans.add(plan);
-			}
-
-
-		} catch (ClientProtocolException e) {
-			Log.d("DEBUG", "Client protocol exception");
-		} catch (IOException e) {
-			Log.d("DEBUG", "IO exception");
-			e.printStackTrace();
-		} catch (JSONException e) {
-			Log.d("DEBUG", "JSON exception");
-		}  finally {
-			apiProxy.shutdown();
-		}
-		return inactivePlans;
-	}
-
-
-	public Plan getPlanInfo(int planId){
-		Plan plan = null; 
-		try {
-			HttpClient httpClient = apiProxy.getHttpClient();
-			HttpGet getRequest = apiProxy.getHttpGetRequest(String.format(OP_PLAN_INFO, planId), authorizationToken); 
-			HttpResponse resp = httpClient.execute(getRequest);
-
-			int statusCode = resp.getStatusLine().getStatusCode();
-			Log.d("DEBUG", "GET plan info, status code: " + statusCode);
-			if (statusCode != HttpURLConnection.HTTP_OK) { // handle any errors, like 404, 500,..
-				Log.d("DEBUG", "Unknown error");
-			}
-
-			String respStr = EntityUtils.toString(resp.getEntity());
-			Log.d("DEBUG", "response: " + respStr);
-			JSONObject planJson = new JSONObject(respStr);
-			JSONObject opInfoJson = planJson.optJSONObject("opInfo");
-
-			String description = opInfoJson.optString("description");
-			plan = new Plan(description);
-			plan.setId(planJson.optInt("id"));
-			plan.setObjectName(opInfoJson.optString("object"));
-			plan.setStatus(planJson.optString("state"));
-			plan.setRa(opInfoJson.optString("ra"));
-			plan.setDec(opInfoJson.optString("dec"));
-			plan.setExposure(opInfoJson.optDouble("exposure"));
-			plan.setFilter(opInfoJson.optString("filter"));
-
-			ArrayList<Bitmap> imagesArray = new ArrayList<Bitmap>();
-			JSONArray resultsJson = planJson.optJSONArray("results");
-			if (resultsJson != null) {
-				for (int i = 0; i < resultsJson.length(); i++) {
-					JSONObject resultJson = resultsJson.optJSONObject(i);
-					JSONArray imagesJSON = resultJson.optJSONArray("images");
-					for (int j = 0; j < imagesJSON.length(); j++) {
-						JSONObject imageJSON = imagesJSON.optJSONObject(j);
-						String format = imageJSON.optString("format");
-						if (format != null && format.compareTo("JPG") == 0){
-							String url = imageJSON.optString("url");
-							Log.d("RESULTS", url);
-							Bitmap bm = loadImageFromUrl(url, TEMP_IMAGE_PATH);
-							if (bm != null)
-								imagesArray.add(bm);
-							else 
-								Log.d("RESULTS", "Image could not be loaded");
-						}
-					}
-				}
-			}
-			plan.setResults(imagesArray);
-
-		} catch (ClientProtocolException e) {
-			Log.d("DEBUG", "Client protocol exception");
-		} catch (IOException e) {
-			Log.d("DEBUG", "IO exception");
-			e.printStackTrace();
-		} catch (JSONException e) {
-			Log.d("DEBUG", "JSON exception");
-		}  finally {
-			apiProxy.shutdown();
-		}
-		return plan;
-	}
-
-
+	
+	
+	
+	
+	
+	
+	
+	/* **********************************************
+	 * 				SCHEDULER						*
+	 ********************************************** */
 
 
 
@@ -526,6 +482,111 @@ public class GloriaApiOperations {
 			apiProxy.shutdown();
 		}
 		return activePlans;
+	}
+	public ArrayList<Plan> getPlansInactive() {
+		ArrayList<Plan> inactivePlans = new ArrayList<Plan>();
+		try {
+			HttpClient httpClient = apiProxy.getHttpClient();
+			HttpGet getRequest = apiProxy.getHttpGetRequest(OP_PLANS_INACTIVE, authorizationToken); 
+			HttpResponse resp = httpClient.execute(getRequest);
+
+			int statusCode = resp.getStatusLine().getStatusCode();
+			Log.d("DEBUG", "GET inactive plans, status code: " + statusCode);
+			if (statusCode != HttpURLConnection.HTTP_OK) { // handle any errors, like 404, 500,..
+				Log.d("DEBUG", "Unknown error");
+			}
+
+			String respStr = EntityUtils.toString(resp.getEntity());
+			Log.d("DEBUG", "response: " + respStr);
+			JSONArray plansJson = new JSONArray(respStr);
+
+			for (int i = 0; i < plansJson.length(); i++) {
+				JSONObject planJson = plansJson.optJSONObject(i);
+				JSONObject opInfoJson = planJson.optJSONObject("opInfo");
+				String description = opInfoJson.optString("description");
+				Plan plan = new Plan(description);
+				plan.setObjectName(opInfoJson.optString("object"));
+				plan.setStatus(planJson.optString("state"));
+				plan.setId(planJson.optInt("id"));
+				inactivePlans.add(plan);
+			}
+
+
+		} catch (ClientProtocolException e) {
+			Log.d("DEBUG", "Client protocol exception");
+		} catch (IOException e) {
+			Log.d("DEBUG", "IO exception");
+			e.printStackTrace();
+		} catch (JSONException e) {
+			Log.d("DEBUG", "JSON exception");
+		}  finally {
+			apiProxy.shutdown();
+		}
+		return inactivePlans;
+	}
+
+	
+
+	public Plan getPlanInfo(int planId){
+		Plan plan = null; 
+		try {
+			HttpClient httpClient = apiProxy.getHttpClient();
+			HttpGet getRequest = apiProxy.getHttpGetRequest(String.format(OP_PLAN_INFO, planId), authorizationToken); 
+			HttpResponse resp = httpClient.execute(getRequest);
+
+			int statusCode = resp.getStatusLine().getStatusCode();
+			Log.d("DEBUG", "GET plan info, status code: " + statusCode);
+			if (statusCode != HttpURLConnection.HTTP_OK) { // handle any errors, like 404, 500,..
+				Log.d("DEBUG", "Unknown error");
+			}
+
+			String respStr = EntityUtils.toString(resp.getEntity());
+			Log.d("DEBUG", "response: " + respStr);
+			JSONObject planJson = new JSONObject(respStr);
+			JSONObject opInfoJson = planJson.optJSONObject("opInfo");
+
+			String description = opInfoJson.optString("description");
+			plan = new Plan(description);
+			plan.setId(planJson.optInt("id"));
+			plan.setObjectName(opInfoJson.optString("object"));
+			plan.setStatus(planJson.optString("state"));
+			plan.setRa(opInfoJson.optString("ra"));
+			plan.setDec(opInfoJson.optString("dec"));
+
+			ArrayList<Bitmap> imagesArray = new ArrayList<Bitmap>();
+			JSONArray resultsJson = planJson.optJSONArray("results");
+			if (resultsJson != null) {
+				for (int i = 0; i < resultsJson.length(); i++) {
+					JSONObject resultJson = resultsJson.optJSONObject(i);
+					JSONArray imagesJSON = resultJson.optJSONArray("images");
+					for (int j = 0; j < imagesJSON.length(); j++) {
+						JSONObject imageJSON = imagesJSON.optJSONObject(j);
+						String format = imageJSON.optString("format");
+						if (format != null && format.compareTo("JPG") == 0){
+							String url = imageJSON.optString("url");
+							Log.d("RESULTS", url);
+							Bitmap bm = loadImageFromUrl(url, TEMP_IMAGE_PATH);
+							if (bm != null)
+								imagesArray.add(bm);
+							else 
+								Log.d("RESULTS", "Image could not be loaded");
+						}
+					}
+				}
+			}
+			plan.setResults(imagesArray);
+
+		} catch (ClientProtocolException e) {
+			Log.d("DEBUG", "Client protocol exception");
+		} catch (IOException e) {
+			Log.d("DEBUG", "IO exception");
+			e.printStackTrace();
+		} catch (JSONException e) {
+			Log.d("DEBUG", "JSON exception");
+		}  finally {
+			apiProxy.shutdown();
+		}
+		return plan;
 	}
 
 

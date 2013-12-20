@@ -8,6 +8,7 @@
     <dimen name="image_border">1dp</dimen>
     <dimen name="section_column_width">135dp</dimen>
     <dimen name="telescopes_column_width">100dp</dimen>
+    <dimen name="telescope_image__max_width">250dp</dimen>
     <dimen name="status_width">20dp</dimen>
     <dimen name="status_height">20dp</dimen>
     <dimen name="field_space">2dp</dimen>

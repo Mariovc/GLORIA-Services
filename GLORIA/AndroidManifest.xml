@@ -59,7 +59,7 @@
         </activity>
         
         <activity 
-            android:name="com.gloria.phoneinterface.ui.StarActivity" 
+            android:name="com.gloria.phoneinterface.ui.PlanActivity" 
             android:label="@string/scheduler_activity_label" >
         </activity>
     </application>

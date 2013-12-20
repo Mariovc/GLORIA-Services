@@ -80,11 +80,6 @@ public class LoginActivity extends Activity {
 		return true;
 	}
 
-	public void launchInfo() {
-		Intent i = new Intent(this, InfoActivity.class);
-		startActivity(i);
-	}
-
 	public void authenticate(View view) {
 		EditText usernameText = (EditText) findViewById(R.id.username);
 		this.username = usernameText.getText().toString();
@@ -206,7 +201,7 @@ public class LoginActivity extends Activity {
 	
 	private class Authentication extends AsyncTask<Void, Void, Boolean> {
 		private ProgressDialog progressDialog;
-		private String errorResponse = getString(R.string.defaultErrorMsg);
+		private String errorResponse = getString(R.string.noErrorMsg);
 		private String authorizationToken = "";
 
 		// This function is called at the beginning, before doInBackground
@@ -233,6 +228,7 @@ public class LoginActivity extends Activity {
 					return false;
 				}
 				Log.d("DEBUG", "opening connection");
+				Log.d("DEBUG", System.getProperty("http.agent"));
 				HttpResponse resp = httpClient.execute(getRequest);
 				int statusCode = resp.getStatusLine().getStatusCode();
 				Log.d("DEBUG", "status code: " + statusCode);
@@ -246,6 +242,7 @@ public class LoginActivity extends Activity {
 					// handle any other errors, like 404, 500,..
 					Log.d("DEBUG", "Unknown error");
 					errorResponse = getString(R.string.defaultErrorMsg);
+					Log.d("DEBUG", EntityUtils.toString(resp.getEntity()));
 					return response;
 				} else {
 					response = true;
@@ -261,6 +258,7 @@ public class LoginActivity extends Activity {
 				// could not read response body
 				// (could not create input stream)
 			} finally {
+				Log.d("DEBUG", errorResponse);
 				if (httpClient != null) {
 					httpClient.getConnectionManager().shutdown();
 				}

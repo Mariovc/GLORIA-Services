@@ -41,6 +41,8 @@
     <string name="telescope_focal_length_example">4475mm</string>
     <string name="telescope_webpage_example">www.das.uchile.cl/proyectoCHASE/</string>
     
+    <string name="telescope_latitude">Latitude</string>
+    <string name="telescope_longitude">Longitude</string>
     
     
     
@@ -65,6 +67,7 @@
 	<string name="star_name">Name:</string>
 	<string name="star_description">Description:</string>
 	<string name="star_object">Object:</string>
+    <string name="star_object_type">Object type:</string>
 	<string name="star_ra">RA:</string>
 	<string name="star_dec">DEC:</string>
 	<string name="star_exposure">Exposure:</string>
@@ -76,6 +79,7 @@
 	<string name="star_description_example">Fer - test 10</string>
 	<string name="star_description_hint">Description</string>
 	<string name="star_object_example">Jupiter</string>
+    <string name="star_object_type_example">Supernova remnant</string>
 	<string name="star_ra_example">19h 59.6m</string>
 	<string name="star_dec_example">+22° 43´</string>
 	<string name="star_exposure_example">-</string>
@@ -90,6 +94,7 @@
 	
 	
     <string name="authenticatingMsg">Authenticating &#8230;</string>
+    <string name="noErrorMsg">No error</string>
     <string name="defaultErrorMsg">Unexpected error</string>
     <string name="wrongLoginMsg">Invalid username or password</string>
     <string name="noInternetMsg">Server unreachable (Please check your Internet connection)</string>

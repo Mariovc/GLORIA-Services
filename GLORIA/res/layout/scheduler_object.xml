@@ -107,6 +107,50 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/objectTypeFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/objectTypeTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/star_object_type"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/objectTypeValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/star_object_type_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filterFieldContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/filterTitleField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/star_filter"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/filterValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/field_space"
+                    android:text="@string/star_filter_example"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/raFieldContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -147,50 +191,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/field_space"
                     android:text="@string/star_dec_example"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/exposureFieldContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:id="@+id/exposureTitleField"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/star_exposure"
-                    android:textColor="@color/blue"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/exposureValueField"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/field_space"
-                    android:text="@string/star_exposure_example"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/filterFieldContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:id="@+id/filterTitleField"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/star_filter"
-                    android:textColor="@color/blue"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/filterValueField"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/field_space"
-                    android:text="@string/star_filter_example"
                     android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>

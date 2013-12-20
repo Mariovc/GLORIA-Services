@@ -25,25 +25,6 @@ import com.gloria.phoneinterface.structures.Telescope;
 
 public class TelescopesActivity extends SherlockActivity{
 
-
-	private static final String T01_BOOTES1 = "BOOTES1";
-	private static final String T02_BOOTES2 = "BOOTES2";
-	private static final String T03_BOOTES3 = "BOOTES3";
-	private static final String T04_CABEVA1  = "CAB-EVA1";
-	private static final String T05_CABCAB  = "CAB-CAB";
-	private static final String T06_CABCAHA  = "CAB-CAHA";
-	private static final String T07_BART = "BART";
-	private static final String T08_FRAM  = "FRAM";
-	private static final String T09_PI1 = "PI1";
-	private static final String T10_WATCHER = "WATCHER";
-	private static final String T11_TOLOLO = "TOLOLO";
-	private static final String T12_OM = "OM";
-	private static final String T13_TAD = "TAD";
-	private static final String T14_D50 = "D50";
-	private static final String T15_TAU = "TAU";
-	private static final String T16_TORTORA = "TORTORA";
-	private static final String T17_PI2 = "PI2";
-
 	
 	private GridView gridView;
 	private GridViewAdapter customGridAdapter;
@@ -183,18 +164,21 @@ public class TelescopesActivity extends SherlockActivity{
 
 		@Override
 		protected Void doInBackground(Void... voids) {
-			ArrayList<String> telescopesNames = apiOperations.getTelescopesNames();
-			ArrayList<Bitmap> telescopesImages = getTelescopesImages(telescopesNames);
+			ArrayList<String> telescopeNames = apiOperations.getTelescopesNames();
+			ArrayList<Bitmap> telescopeImages = new ArrayList<Bitmap>();
+			for (int i = 0; i < telescopeNames.size(); i++) {
+				Bitmap image = apiOperations.getTelescopeImage(telescopeNames.get(i));
+				if (image == null)
+					image = BitmapFactory.decodeResource(getResources(), R.drawable.t00_no_telescope);
+				telescopeImages.add(image);
+			}
 			ArrayList<Telescope> telescopesArray = new ArrayList<Telescope>();
-			for (int i=0; i < telescopesNames.size(); i++) {
-				Telescope telescope = new Telescope(telescopesNames.get(i), telescopesImages.get(i));
+			for (int i=0; i < telescopeNames.size(); i++) {
+				Telescope telescope = new Telescope(telescopeNames.get(i), telescopeImages.get(i));
 				telescopesArray.add(telescope);
 			}
 			telescopes = telescopesArray;
-			Log.d("DEBUG", "array de telescopes: " + telescopesNames.toString());
-			
-			// TODO call API to get telescopes images
-			
+			Log.d("DEBUG", "array de telescopes: " + telescopeNames.toString());
 			
 			return null;
 		}
@@ -219,52 +203,7 @@ public class TelescopesActivity extends SherlockActivity{
 			}
 		}
 
-		private ArrayList<Bitmap> getTelescopesImages(ArrayList<String> telescopesNames) {
-			ArrayList<Bitmap> images = new ArrayList<Bitmap>();
-			Bitmap image;
-			for (int i = 0; i < telescopesNames.size(); i++) {
-				String name = telescopesNames.get(i);
-				// switch
-				if (name.compareTo(T01_BOOTES1) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t01_bootes_1);
-				else if (name.compareTo(T02_BOOTES2) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t02_bootes_2);
-				else if (name.compareTo(T03_BOOTES3) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t03_bootes_3);
-				else if (name.compareTo(T04_CABEVA1) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t04_cab_eva_1);
-				else if (name.compareTo(T05_CABCAB) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t05_cab_cab);
-				else if (name.compareTo(T06_CABCAHA) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t06_cab_caha);
-				else if (name.compareTo(T07_BART) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t07_bart);
-				else if (name.compareTo(T08_FRAM) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t08_fram);
-				else if (name.compareTo(T09_PI1) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t09_piofthesky1);
-				else if (name.compareTo(T10_WATCHER) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t10_watcher);
-				else if (name.compareTo(T11_TOLOLO) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t11_tololo);
-				else if (name.compareTo(T12_OM) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t12_om);
-				else if (name.compareTo(T13_TAD) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t13_tad);
-				else if (name.compareTo(T14_D50) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t14_d50);
-				else if (name.compareTo(T15_TAU) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t15_tau);
-				else if (name.compareTo(T16_TORTORA) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t16_tortora);
-				else if (name.compareTo(T17_PI2) == 0)
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t17_piofthesky2);
-				else 
-					image = BitmapFactory.decodeResource(getResources(), R.drawable.t00_no_telescope);
-				images.add(image);
-			}
-			return images;
-		}
+		
 	}
 	
 

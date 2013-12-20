@@ -96,5 +96,6 @@ public class GloriaApiProxy {
 	private void setHeaders(HttpRequestBase request, String authToken) {
 		request.setHeader("content-type", "application/json");
 		request.setHeader("Authorization", "Basic " + authToken);
+		request.setHeader("User-Agent", System.getProperty("http.agent"));
 	}
 }

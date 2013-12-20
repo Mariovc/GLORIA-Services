@@ -2,8 +2,8 @@ package com.gloria.phoneinterface.ui;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Paint;
+import android.graphics.PointF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -20,6 +20,7 @@ import com.gloria.phoneinterface.structures.Telescope;
 
 public class TelescopeActivity extends SherlockActivity{
 
+	
 	private Telescope telescope = null;
 	private String authorizationToken = "";
 	private GloriaApiOperations apiOperations = null;
@@ -41,24 +42,12 @@ public class TelescopeActivity extends SherlockActivity{
 	}
 
 	private void setTelescopeInfo(String telescopeName, Bitmap telescopeImage) {
-		//this.telescope = getTelescopeInfo();
 		this.telescope = apiOperations.getTelescopeInfo(telescopeName, telescopeImage);
 		
 		if (this.telescope != null)
 			setInfoViews();
 	}
 
-	/*private Telescope getTelescopeInfo() {
-		Bitmap image = BitmapFactory.decodeResource(this.getResources(), R.drawable.t01_bootes_1);
-		Telescope telescope = new Telescope("T01_BOOTES_1", image);
-		telescope.setLocation("");
-		telescope.setAperture("");
-		telescope.setCoordinates("");
-		telescope.setFilters("");
-		telescope.setFocalLength("");
-		telescope.setWebsite("http://www.google.com");
-		return telescope;
-	}*/
 	
 	private void setInfoViews() {
 		((TextView) findViewById(R.id.nameField)).setText(telescope.getName());
@@ -78,9 +67,11 @@ public class TelescopeActivity extends SherlockActivity{
 		else 
 			findViewById(R.id.locationFieldContainer).setVisibility(View.GONE);
 
-		if (telescope.getCoordinates() != null)
-			((TextView) findViewById(R.id.coordinatesValueField)).setText(telescope.getCoordinates());
-		else 
+		if (telescope.getCoordinates() != null){
+			PointF coordinates = telescope.getCoordinates();
+			String coordinatesString = getString(R.string.telescope_longitude) + ": " + coordinates.x + " " + getString(R.string.telescope_latitude) + ": " + coordinates.y;
+			((TextView) findViewById(R.id.coordinatesValueField)).setText(coordinatesString);
+		}else 
 			findViewById(R.id.coordinatesFieldContainer).setVisibility(View.GONE);
 
 		if (telescope.getStartingDate() != null)

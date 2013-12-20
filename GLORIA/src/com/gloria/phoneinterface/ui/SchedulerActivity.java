@@ -125,7 +125,7 @@ ActionBar.TabListener {
 
 	private void newActivity(int position) {
 		int currentTab = getSupportActionBar().getSelectedNavigationIndex();
-		Intent intent = new Intent(this, StarActivity.class);
+		Intent intent = new Intent(this, PlanActivity.class);
 		intent.putExtra("authorizationToken", authorizationToken);
 		intent.putExtra("tabType", getSupportActionBar().getSelectedNavigationIndex());
 		switch (currentTab) {

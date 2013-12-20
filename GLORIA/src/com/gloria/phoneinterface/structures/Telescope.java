@@ -1,14 +1,17 @@
 package com.gloria.phoneinterface.structures;
 
 import android.graphics.Bitmap;
+import android.graphics.PointF;
 
 public class Telescope {
 
+	
+	
 	private Bitmap image = null;
 	private String name = null;
 	private String partner = null;
 	private String location = null;
-	private String coordinates = null;
+	private PointF coordinates = null;
 	private String startingDate = null;
 	private String filters = null;
 	private String aperture = null;
@@ -52,11 +55,12 @@ public class Telescope {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public String getCoordinates() {
+	public PointF getCoordinates() {
 		return coordinates;
 	}
-	public void setCoordinates(String coordinates) {
-		this.coordinates = coordinates;
+	public void setCoordinates(Float longitude, Float latitude) {
+		this.coordinates.x = longitude;
+		this.coordinates.y = latitude;
 	}
 	public String getStartingDate() {
 		return startingDate;
